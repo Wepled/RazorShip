@@ -1,0 +1,54 @@
+﻿@page
+@model WebBattleship.Pages.PlayGame
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <style>
+        .table_center_by_css {
+        width: 500px;
+        margin: auto;
+        }
+        td {
+        background-color: #dfffdf;
+        text-align: center; /* Выравниваем текст по центру ячейки */
+        }
+        button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+        }
+      </style>
+
+<div class="text-center">
+    <br>
+    <br>
+    <br>
+    <table class="table_center_by_css">
+        <tr>
+            <td valign="top">Do you want to choose original settings?</td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="window.location='/OriginalSettingsGame?settings=original'">Original Settings</button>
+    <br>
+    <br>
+    <table class="table_center_by_css">
+        <tr>
+            <td valign="top">Do you want to change the game settings?</td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="window.location='/Settings'">Change Settings</button>
+</div>
+</body>
+</html>

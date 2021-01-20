@@ -1,0 +1,86 @@
+﻿@page
+@model WebBattleship.Pages.Shared.Start
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        .block-left{
+            width: 50%;
+            height: 800px;
+            float: left;
+        }
+        .block-right{
+            width: 50%;
+            height: 800px;
+            float: right;
+           
+        }
+        button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+        }
+    </style>
+<div>
+    <div class="block-left" align="center">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <table class="table table-bordered">
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <tr>
+                            @for (int x = 0; x < 10; x++)
+                            {
+                                <td>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <br>
+        <table>
+            <button onclick="window.location='https://localhost:5001/LoadGame'">Save Game</button>
+        </table>
+        <br>
+        <table>
+            <button onclick="window.location='https://localhost:5001/Index'">Finish Game</button>
+        </table>
+    </div>
+    <div>
+        <div class="block-right" align="center">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <table class="table table-bordered">
+                        @for (int y = 0; y < 10; y++)
+                        {
+                            <tr>
+                                @for (int x = 0; x < 10; x++)
+                                {
+                                    <td>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+﻿@page
+@model WebBattleship.Pages.OriginalSettingsGame
+@{ Layout = "Shared/_Layout";}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div align="center" style="width: 40%;
+                                      height: 800px;
+                                      float: left;">
+            <table>
+                <tr>
+                    <td><strong>Board height: </strong></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>@Model.Game?.Heigth</td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td><strong>Board width:</strong></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>@Model.Game?.Width</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table width="100%">
+                <tr>
+                    <td><strong>Ship name</strong></td>
+                    <td><strong>Size</strong></td>
+                    <td><strong>Amount</strong></td>
+                </tr>
+                <tr>
+                    <td>Carrier</td>
+                    <td>
+                        @Model.GameBrain.GetShipNumber("Carrier")
+                    </td>
+                    <td>
+                        @Model.Game?.CarrierCount
+                    </td>
+                    <td>
+                        <a asp-route-GameId="@Model.Game?.Id"
+                           asp-route-ShipId="@("Carrier" + "_" + Model.Game?.Id + "_" + (Model.GameBrain.CarrierCount + 1) + "Player")"
+                           asp-route-x="1"
+                           asp-route-y="10"
+                           asp-route-shipType="Carrier"
+                           asp-route-isNewShip="@true">+</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Battleship</td>
+                    <td>
+                        @Model.GameBrain.GetShipNumber("Battleship")
+                    </td>
+                    <td>
+                        @Model.Game?.BattleshipCount
+                    </td>
+                    <td>
+                        <a asp-route-GameId="@Model.Game?.Id"
+                           asp-route-ShipId="@("Battleship" + "_" + Model.Game?.Id + "_" + (Model.GameBrain.BattleshipCount + 1) + "Player")"
+                           asp-route-x="2"
+                           asp-route-y="5"
+                           asp-route-shipType="Battleship"
+                           asp-route-isNewShip="@true">+</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Submarine</td>
+                    <td>
+                        @Model.GameBrain.GetShipNumber("Submarine")
+                    </td>
+                    <td>
+                        @Model.Game?.SubmarineCount
+                    </td>
+                    <td>
+                        <a asp-route-GameId="@Model.Game?.Id"
+                           asp-route-ShipId="@("Submarine" + "_" + Model.Game?.Id + "_" + (Model.GameBrain.SubmarineCount + 1) + "Player")"
+                           asp-route-x="2"
+                           asp-route-y="6"
+                           asp-route-shipType="Submarine"
+                           asp-route-isNewShip="@true">+</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cruiser</td>
+                    <td>
+                        @Model.GameBrain.GetShipNumber("Cruiser")
+                    </td>
+                    <td>
+                        @Model.Game?.CruiserCount
+                    </td>
+                    <td>
+                        <a asp-route-GameId="@Model.Game?.Id"
+                           asp-route-ShipId="@("Cruiser" + "_" + Model.Game?.Id + "_" + (Model.GameBrain.CruiserCount + 1) + "Player")"
+                           asp-route-x="5"
+                           asp-route-y="9"
+                           asp-route-shipType="Cruiser"
+                           asp-route-isNewShip="@true">+</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Patrol</td>
+                    <td>
+                        @Model.GameBrain.GetShipNumber("Patrol")
+                    </td>
+                    <td>
+                        @Model.Game?.PatrolCount
+                    </td>
+                    <td>
+                        <a asp-route-GameId="@Model.Game?.Id"
+                           asp-route-ShipId="@("Patrol" + "_" + Model.Game?.Id + "_" + (Model.GameBrain.PatrolCount + 1) + "Player")"
+                           asp-route-x="2"
+                           asp-route-y="9"
+                           asp-route-shipType="Patrol"
+                           asp-route-isNewShip="@true">+</a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div class="col-4">
+                <table>
+                    <tr>
+                        <td> </td>
+                        <td>
+                            <a style="color: #4CAF50"
+                               asp-route-GameId="@Model.Game?.Id"
+                               asp-route-ShipId="@(Model.SelectedShip?.ShipName)"
+                               asp-route-y="-1"
+                               asp-route-isNewShip="@false">▲ </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a style="color: #4CAF50" asp-route-GameId="@Model.Game?.Id" 
+                               asp-route-ShipId="@(Model.SelectedShip?.ShipName)"
+                               asp-route-x="-1"
+                               asp-route-isNewShip="@false">ᐊ </a></td>
+                        <td><a style="color: #4CAF50" asp-route-dir="rotate"> </a></td>
+                        <td><a style="color: #4CAF50" asp-route-GameId="@Model.Game?.Id" 
+                               asp-route-ShipId="@(Model.SelectedShip?.ShipName)"
+                               asp-route-x="1"
+                               asp-route-isNewShip="@false">ᐅ </a></td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><a style="color: #4CAF50" asp-route-GameId="@Model.Game?.Id" 
+                               asp-route-ShipId="@(Model.SelectedShip?.ShipName)"
+                               asp-route-y="1"
+                               asp-route-isNewShip="@false">▼</a></td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3"><a style="color: #4CAF50"
+                                           asp-route-isRotate="@true"
+                                           asp-route-GameId="@Model.Game?.Id"
+                                           asp-route-ShipId="@(Model.SelectedShip?.ShipName)"
+                                           asp-route-isNewShip="@false">↻ </a></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    <div class="block-right" align="center" style="width: 60%; height: 800px; float: right;">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <table class="table table-bordered">
+                        @for (int y = 0; y < Model.Game?.Heigth + 1; y++)
+                        {
+                            <tr id="@(y > 0 ? (Model.Letters[y] + '1') : '0')">
+                                @for (int x = 0; x < Model.Game?.Width + 1; x++)
+                                {
+                                    <td id="@(y > 0 ? (Model.Letters[y] + x.ToString()) : "Number")">
+                                        @if ((x>0 && y>0) ? Model.GameBrain.CheckCell(x, y, true) : false)
+                                        {
+                                            <a>sd</a>
+                                        }
+                                        @if (x == 0 && y > 0)
+                                        {
+                                            @(Model.Letters[y])
+                                        }
+                                        @if (y == 0 && x > 0)
+                                        {
+                                            @x
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <button style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px;"
+                    onclick="window.location = '?gameId=@Model.Game?.Id&random=1'">
+                Random
+            </button>
+            <button style="background-color: #4CAF50; /* Green */border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px;"
+                    onclick="window.location = '/Start?gameId=@Model.Game?.Id'">
+                Start Game
+            </button>
+        </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+﻿@page
+@model WebBattleship.Pages.OriginalSettingsGame
+@{ Layout = "Shared/_Layout";}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+
+    <div class="block-left" align="center" style="width: 40%;
+                                                  height: 800px;
+                                                  float: left;">
+        <table>
+            <tr>
+                <td><strong>Board height: </strong></td>
+            </tr>
+        </table>    
+        <table>
+            <tr>
+                <td>10</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td><strong>Board width:</strong></td>
+            </tr>
+        </table>    
+        <table>
+            <tr>
+                <td>10</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" cellspacing="0" id="maket">
+            <tr> 
+                <td align="left"><strong>Ship name</strong></td>
+                <td align="center"><strong>Size</strong></td>
+                <td align="center"><strong>Amount</strong></td>
+            </tr>
+            <tr> 
+                <td align="left">Carrier</td>
+                <td align="center">
+                    5
+                </td>
+                <td align="center">
+                    1
+                </td>
+            </tr>
+            <tr> 
+                <td align="left">Battleship</td>
+                <td align="center">
+                    4
+                </td>
+                <td align="center">
+                    2
+                </td>
+            </tr>
+            <tr> 
+                <td align="left">Submarine</td>
+                <td align="center">
+                    3
+                </td>
+                <td align="center">
+                    3
+                </td>
+            </tr>
+            <tr> 
+                <td align="left">Cruiser</td>
+                <td align="center">
+                    2
+                </td>
+                <td align="center">
+                    4
+                </td>
+            </tr>
+            <tr> 
+                <td align="left">Patrol</td>
+                <td align="center">
+                    1
+                </td>
+                <td align="center">
+                    5
+                </td>
+            </tr>
+        </table>
+        <br>
+        
+    <div class="col-4">
+        <table align="center">
+            <tr>
+                <td> </td>
+                <td><a style="color: #4CAF50" asp-route-dir="up">▲ </a></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td><a style="color: #4CAF50" asp-route-dir="left">ᐊ </a></td>
+                <td><a style="color: #4CAF50" asp-route-dir="rotate">↻</a></td>
+                <td><a style="color: #4CAF50" asp-route-dir="right">ᐅ </a></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td><a style="color: #4CAF50" asp-route-dir="down">▼</a></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3"><a style="color: #4CAF50" asp-route-dir="down-right">ок </a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+    <div class="block-right" align="center" style="width: 60%;
+                                                   height: 800px;
+                                                   float: right;">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <table class="table table-bordered">
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <tr>
+                            @for (int x = 0; x < 10; x++)
+                            {
+                                <td>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <table>
+            <button style="background-color: #4CAF50; /* Green */
+                           border: none;
+                           color: white;
+                           padding: 10px 20px;
+                           text-align: center;
+                           text-decoration: none;
+                           display: inline-block;
+                           font-size: 13px;" 
+                    onclick="window.location='https://localhost:5001/Start'">Start Game</button>
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿@page
+@model WebBattleship.Pages.Rules
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Rules</title>
+    <pre>
+
+<font size="+2" style="font-weight: bold">Game</font>
+
+1)Preparing
+ Player choose ship (from the left side of page) and put it using control panel on left.
+ When all ships are placed, player click "PLAY" and game starts.
+
+2)Play
+ On the left part of page player can see his board and button "SAVE GAME".
+ When player click "SAVE GAME", game save and player can continue game later. Game saving being on the page "LOAD GAME".
+
+ On the right part of page is enemy board. Player can click on any cell and "throw a bomb".
+ Each player have 1 turn. 
+ Game ends when all ships of one of players sunk. The one whose all ships are sunk loses.
+
+Sympols on board:
+<div style="background-color: #ffffff; margin-right:96%; margin-left: 2%"> X - Bomb</div>
+<div style="background-color: #FF0000; margin-right:96%; margin-left: 2%"> X - Damaged part of ship (both boards)</div> 
+<div style="background-color: #A9A9A9; margin-right:96%; margin-left: 2%">   - Ship on player's board </div> 
+
+
+<font size="+2" style="font-weight: bold">Options</font>
+
+Game Battleship contains of 2 boards (Player1 and Player2) and 5 ships on each. (Standart game conatains of all types of ships by one.)
+
+Types of ships:
+    -Carrier     (standart size: 1 x 5)
+    -Battleship	 (standart size: 1 x 4)
+    -Submarine	 (standart size: 1 x 3)
+    -Cruiser	 (standart size: 1 x 2)
+    -Patrol      (standart size: 1 x 1)
+    
+
+Board size:
+    - 10 x 10 (standart size)
+    - 3 (minimal size of side)
+    - 30 (maximal size of side)
+
+
+Battleship have parameters of boards and ships. Player can use standart parameters or change it.
+
+Parameters:
+
+    Board:
+        -Height of board
+        -Width of board
+
+    Ships:
+        -Touching of ships (If this option is checked, ships can touch with corners and sides.)
+
+    Each ship:
+        -size 
+        -amount (game contains of 5 ships)
+
+    Player can choose amount of any type of ship for game.
+
+</pre>
+
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

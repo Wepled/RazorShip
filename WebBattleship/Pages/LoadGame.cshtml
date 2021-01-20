@@ -1,0 +1,60 @@
+﻿@page
+@model WebBattleship.Pages.LoadGame
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <table class="table">
+    <thead>
+    <tr>
+        <th>
+            Game
+        </th>
+        <th>
+            Ships
+        </th>
+        <th>
+            School Class
+        </th>
+        <th>
+            Optional Subject(s)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        @if (Model.Games != null)
+            {@foreach (var item in Model.Games)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Width)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Heigth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Heigth)
+                    </td>
+                    <td>
+                        <a asp-page="./OriginalSettingsGame"
+                           asp-route-gameId="@item.Id">Load</a>|
+                        <a asp-page="./LoadGame"
+                           asp-route-gameId="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+    </table>
+</div>
+</body>
+</html>

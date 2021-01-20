@@ -1,0 +1,12 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace WebBattleship.Pages
+{
+    public class ChangeSettingsGame : PageModel
+    {
+        public void OnGet()
+        {
+            
+        }
+    }
+}

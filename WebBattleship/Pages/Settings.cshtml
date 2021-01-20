@@ -1,0 +1,172 @@
+﻿@page
+@model WebBattleship.Pages.Settings
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ship Settings</title>
+</head>
+
+    <style>
+    table {
+    width: 400px; /* Ширина таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+    }
+    td {
+    text-align: center; /* Выравниваем текст по центру ячейки */
+    }
+    button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+  </style>
+
+<body>
+    <form method="post">
+        <div>
+            <br>
+            <label>
+                <strong>Board Size</strong>
+            </label>
+
+            <span>Height: </span>
+            <input type="number" name="gameHeigth" />
+            <br>
+            <span>Width: </span>
+            <input type="number" name="gameWidth" />
+            <br>
+            <label>
+                <strong>Ship Size</strong>
+            </label>
+            <table width="100%" cellspacing="0" id="maket">
+                <tr>
+                    <td valign="top"><strong>Ship name</strong></td>
+                    <td valign="top"><strong>Size</strong></td>
+                    <td valign="top"><strong>Amount</strong></td>
+                </tr>
+                <tr>
+                    <td valign="top">Carrier</td>
+                    <td valign="top">
+                        <select type="text" name="CarrierSize">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                    <td valign="top">
+                        <select type="text" name="CarrierNumber">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Battleship</td>
+                    <td valign="top">
+                        <select type="text" name="BattleshipSize">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                    <td valign="top">
+                        <select type="text" name="BattleshipNumber">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Submarine</td>
+                    <td valign="top">
+                        <select type="text" name="SubmarineSize">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                    <td valign="top">
+                        <select type="text" name="SubmarineNumber">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Cruiser</td>
+                    <td valign="top">
+                        <select type="text" name="CruiserSize">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                    <td valign="top">
+                        <select type="text" name="CruiserNumber">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Patrol</td>
+                    <td valign="top">
+                        <select type="text" name="PatrolSize">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                    <td valign="top">
+                        <select type="text" name="PatrolNumber">
+                            @for (int size = 1; size < 6; size++)
+                            {
+                                <option value="@size"> @size </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <label>
+                <strong>Boats may touch or not</strong>
+            </label>
+            <table>
+                <tr>
+                    <td>Yes <input name="can" id="touch" tpl-checked="yes" type="checkbox" /></td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <td>
+                    <input type="submit" value="Submit" asp-page-handler="Submit" />
+                </td>
+            </table>
+            @if (Model.isError)
+            {
+                <h3>Field is Too small for that. Recreate Please</h3>
+            }
+        </div>
+    </form>
+    </body>
+</html>

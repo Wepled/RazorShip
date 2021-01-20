@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .table_center_by_css {
+    width: 500px;
+    margin: auto;
+    }
+    td {
+    background-color: #dfffdf;
+    text-align: center; /* Выравниваем текст по центру ячейки */
+    }
+    button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+  </style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to BattleShip</h1>
+    <br>
+    <br>
+    <table class="table_center_by_css">
+        <tr>
+            <td valign="top">Do you want to start a new game?</td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="window.location='https://localhost:5001/PlayGame'">Play Game</button>
+    <br>
+    <br>
+    <table class="table_center_by_css">
+        <tr>
+            <td valign="top">Do you want to continue the game?</td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="window.location='https://localhost:5001/LoadGame'">Load Game</button>
+
+</div>

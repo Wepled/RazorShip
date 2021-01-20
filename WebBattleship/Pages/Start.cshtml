@@ -1,0 +1,123 @@
+﻿@page
+@model WebBattleship.Pages.Start
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        .block-left {
+            width: 50%;
+            float: left;
+        }
+
+        .block-right {
+            width: 50%;
+            float: right;
+        }
+
+        .block-left td, .block-right td {
+            width: 40px;
+            height: 40px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+        }
+    </style>
+
+    <div class="block-left" align="left">
+        <div class="row">
+            
+            <div class="col-4 text-center">
+                <table class="table table-bordered">
+                    @for (int y = 0; y < Model.Game?.Heigth + 1; y++)
+                    {
+                        <tr id="@(y > 0 ? (Model.Letters[y] + '1') : '0')">
+                            @for (int x = 0; x < Model.Game?.Width + 1; x++)
+                            {
+                                <td id="@(y > 0 ? (Model.Letters[y] + x.ToString()) : "Number")"
+                                    class="@Model.GetCellClass(x, y, true)">
+                                    @if ((x > 0 && y > 0) ? Model.CheckCell(x, y, true) : false)
+                                    {
+                                        <a>sd</a>
+                                    }
+                                    @if (x == 0 && y > 0)
+                                    {
+                                        @(Model.Letters[y])
+                                    }
+                                    @if (y == 0 && x > 0)
+                                    {
+                                        @x;
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                </table>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="block-right" align="right">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <table class="table table-bordered">
+                    @for (int y = 0; y < Model.Game?.Heigth + 1; y++)
+                    {
+                        <tr id="@(y > 0 ? (Model.Letters[y] + '1') : '0')">
+                            @for (int x = 0; x < Model.Game?.Width + 1; x++)
+                            {
+                                <td id="@(y > 0 ? (Model.Letters[y] + x.ToString()) : "Number")"
+                                    class="@Model.GetCellClass(x, y, false)"
+                                    onclick="window.location.href = '?gameId=@Model.Game?.Id&x=@x&y=@y'">
+                                    @if (x == 0 && y > 0)
+                                    {
+                                        @(Model.Letters[y])
+                                    }
+                                    @if (y == 0 && x > 0)
+                                    {
+                                        @x;
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="width: 100%" align="center">
+        @if (Model.IsBotWinner || Model.IsPlayerWinner)
+        {
+
+            @if (Model.IsBotWinner)
+            {
+                <h2>
+                    bot is winner
+                </h2>
+            }
+            @if (Model.IsPlayerWinner)
+            {
+                <h2>
+                    man is winner
+                </h2>
+            }
+        }
+    </div>
+
+
+</body>
+</html>
